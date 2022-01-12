@@ -21,11 +21,11 @@ export const inputContainer = styled.View`
 
 export const input = styled.TextInput`
   background-color: #ffffff;
-  flex: 3;
+  flex: 4;
 `;
 
 export const button = styled.TouchableHighlight`
-  flex: 1;
+  flex: 2;
   background-color: #1abc9c;
   justify-content: center;
   align-items: center;
@@ -44,6 +44,11 @@ export const buttonCalc = styled.TouchableHighlight`
   justify-content: center;
   align-items: center;
   padding: 15px;
+`;
+
+export const textDefault = styled.Text`
+  color: #ffffff;
+  font-size: 18px;
 `;
 
 //Styled Modal

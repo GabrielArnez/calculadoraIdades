@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Modal, Text } from "react-native";
+import { Alert, Modal, Text } from "react-native";
+import { AgeList } from "../../components/AgeList";
 import * as Styled from "./styles";
 
 export const Home: React.FC = () => {
@@ -8,8 +9,11 @@ export const Home: React.FC = () => {
   const [modalMedia, setModalMedia] = useState(false);
 
   const insertAges: () => void = () => {
-    if (age) {
+    if (age && !age.includes(".") && !age.includes("-") && !age.includes(",")) {
       setListAges([...listAges, age]);
+      setAge("");
+    } else {
+      Alert.alert("Insira um valor valido.");
       setAge("");
     }
   };
@@ -48,21 +52,30 @@ export const Home: React.FC = () => {
         <Styled.inputContainer>
           <Styled.input
             onChangeText={(e) => setAge(e)}
-            keyboardType="number-pad"
+            keyboardType="numeric"
             placeholder="Idade"
             value={age}
           />
           <Styled.button onPress={() => insertAges()}>
-            <Text>Inserir</Text>
+            <Styled.textDefault>Inserir</Styled.textDefault>
           </Styled.button>
         </Styled.inputContainer>
         <Styled.containerAges>
-          {listAges.map((age, index) => (
-            <Text key={index}>{age}</Text>
-          ))}
+          <AgeList listAges={listAges} />
         </Styled.containerAges>
-        <Styled.buttonCalc onPress={() => setModalMedia(true)}>
-          <Text>Calcular Média</Text>
+        <Styled.buttonCalc
+          onPress={() => {
+            if (listAges.length > 0) {
+              setModalMedia(true);
+            } else {
+              Alert.alert("Insira ao menos um valor na lista.");
+            }
+          }}
+        >
+          <Styled.textDefault>Calcular Média</Styled.textDefault>
+        </Styled.buttonCalc>
+        <Styled.buttonCalc onPress={() => setListAges([])}>
+          <Styled.textDefault>Limpar Lista</Styled.textDefault>
         </Styled.buttonCalc>
       </Styled.container>
     </>
