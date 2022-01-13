@@ -1,9 +1,9 @@
 import styled from "styled-components/native";
 
-export const container = styled.SafeAreaView`
+export const container = styled.View`
   flex: 1;
   background-color: #2c3e50;
-  padding: 30px 25px;
+  padding: 30px;
 `;
 
 export const textAges = styled.Text`
@@ -22,6 +22,7 @@ export const inputContainer = styled.View`
 export const input = styled.TextInput`
   background-color: #ffffff;
   flex: 4;
+  padding-left: 15px;
 `;
 
 export const button = styled.TouchableHighlight`
@@ -61,10 +62,10 @@ export const modalContainer = styled.View`
 
 export const modalCenteredView = styled.View`
   background-color: #ffffff;
-  width: 50%;
+  width: 65%;
   border-radius: 5px;
   padding: 10px;
-  height: 100px;
+  height: 150px;
 `;
 
 export const modalContainerButton = styled.View`
@@ -77,4 +78,10 @@ export const buttonCloseModal = styled.TouchableHighlight`
   background-color: #1abc9c;
   padding: 5px 15px;
   border-radius: 5px;
+  margin-top: 10px;
+`;
+
+export const textModal = styled.Text`
+  font-size: 15px;
+  padding: 5px 0px;
 `;

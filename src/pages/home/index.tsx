@@ -30,17 +30,19 @@ export const Home: React.FC = () => {
       >
         <Styled.modalContainer>
           <Styled.modalCenteredView>
-            <Text>Quantidade: {listAges.length}</Text>
-            <Text>
-              Média:
+            <Styled.textModal>
+              Quantidade de Idades: {listAges.length}
+            </Styled.textModal>
+            <Styled.textModal>
+              Média das idades:{" "}
               {listAges.length > 0 &&
                 listAges
                   .map((ages) => Number(ages))
                   .reduce((acumulador, valorAtual) => acumulador + valorAtual)}
-            </Text>
+            </Styled.textModal>
             <Styled.modalContainerButton>
               <Styled.buttonCloseModal onPress={() => setModalMedia(false)}>
-                <Text>Fechar</Text>
+                <Styled.textModal>Fechar</Styled.textModal>
               </Styled.buttonCloseModal>
             </Styled.modalContainerButton>
           </Styled.modalCenteredView>
